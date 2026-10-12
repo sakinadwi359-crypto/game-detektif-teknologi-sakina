@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Petualangan Detektif Teknologi | Kelas 5</title>
+<style>
+:root{--ink:#192943;--navy:#172b4d;--blue:#3767d5;--cyan:#55d6d2;--mint:#b8f2df;--yellow:#ffd166;--orange:#ff9566;--pink:#ffb8d0;--purple:#9b8cff;--paper:#f5f8ff;--white:#fff;--muted:#63718a;--line:#e0e7f4;--green:#167b62;--red:#bd4545}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;font-weight:800;transition:transform .15s,filter .15s}button:hover{transform:translateY(-2px);filter:brightness(1.03)}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #ffb547;outline-offset:3px}
+.hero{background:radial-gradient(circle at 85% 20%,#4f81e8 0 9%,transparent 10%),radial-gradient(circle at 12% 80%,#6b60c8 0 8%,transparent 9%),linear-gradient(130deg,#172b4d,#263f7b 58%,#315fc1);color:#fff;padding:25px 16px 34px;position:relative;overflow:hidden}
+.hero:after{content:"✦  ·  ✧   ·   ✦";position:absolute;right:5%;bottom:12px;color:#ffe08a;font-size:1.4rem;letter-spacing:12px;opacity:.8}
+.hero-inner{max-width:1040px;margin:auto;display:grid;grid-template-columns:1.5fr .7fr;gap:16px;align-items:center}
+.kicker{color:#a9fff0;letter-spacing:2px;font-size:.78rem;font-weight:900}.hero h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1.02;margin:10px 0}.hero p{max-width:650px;color:#e8f0ff;line-height:1.6}.hero-art{font-size:clamp(5rem,14vw,9rem);text-align:center;filter:drop-shadow(0 10px 8px #101b404d);animation:float 3s ease-in-out infinite}@keyframes float{50%{transform:translateY(-8px)}}
+.wrap{max-width:1040px;margin:-15px auto 0;padding:0 14px 40px;position:relative}
+.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:clamp(15px,3vw,24px);margin:16px 0;box-shadow:0 9px 28px #22345b0b}
+h2{margin:0 0 12px;font-size:1.4rem;color:var(--navy)}h3{margin:0 0 7px;color:var(--navy)}p{line-height:1.55}.muted{color:var(--muted)}.tiny{font-size:.86rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.concept{border-radius:18px;padding:17px;border:1px solid transparent}.concept.smart{background:#e4fbf2;border-color:#b9efdd}.concept.non{background:#edf2ff;border-color:#d2ddff}.concept .emoji{font-size:2.2rem}.concept p{margin-bottom:0}
+.pill{display:inline-block;border-radius:999px;background:#fff0bc;color:#684c00;font-size:.76rem;font-weight:900;padding:5px 10px;letter-spacing:.4px}
+.topbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;justify-content:space-between}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:15px 0}.stat{background:#f0f5ff;border-radius:15px;padding:11px;text-align:center}.stat span{display:block;font-size:.78rem;color:var(--muted)}.stat strong{font-size:1.45rem;color:var(--blue)}
+.progress{height:10px;border-radius:20px;background:#e7ebf4;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));transition:width .3s}
+input[type=text],textarea,select{width:100%;border:1.5px solid #d4deee;border-radius:12px;padding:12px;background:#fff;color:var(--ink)}label{display:block;font-weight:800;margin:9px 0 6px}.field{min-width:220px;flex:1}
+.btn{border-radius:13px;padding:12px 16px}.primary{background:var(--blue);color:#fff}.mint{background:var(--mint);color:#155743}.gold{background:var(--yellow);color:#604500}.light{background:#eef3ff;color:var(--navy)}.pink{background:#ffe4ec;color:#8a2c51}.disabled{opacity:.5}
+.section-head{display:flex;gap:12px;align-items:center;margin-bottom:12px}.section-icon{height:52px;width:52px;display:grid;place-items:center;border-radius:16px;background:#fff1c6;font-size:1.8rem;flex-shrink:0}.section-head p{margin:3px 0 0;color:var(--muted)}
+.compare{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:14px;border:1px solid var(--line);margin-top:12px}.compare th,.compare td{text-align:left;padding:11px;border-bottom:1px solid var(--line);vertical-align:top}.compare th{background:#243d70;color:white}.compare tr:last-child td{border-bottom:0}.compare tr:nth-child(even) td{background:#f7f9ff}
+.tech{border:2px solid var(--line);border-radius:18px;padding:15px;display:flex;flex-direction:column;gap:8px;background:#fff}.tech .art{font-size:2.8rem}.tech p{margin:0;color:var(--muted);font-size:.92rem}.choice{display:flex;gap:7px;margin-top:auto}.choice button{flex:1;border-radius:11px;padding:10px 5px;background:#f0f3f9;color:var(--navy);border:2px solid transparent;font-size:.9rem}.choice button.sel{border-color:var(--blue);background:#e8f1ff}.feedback{font-weight:800;font-size:.9rem;min-height:1.25em}.good{color:var(--green)}.bad{color:var(--red)}
+.quest{border:1px solid var(--line);border-radius:16px;padding:15px;margin:12px 0;background:#fff}.answers{display:grid;gap:8px;margin-top:10px}.answers button{text-align:left;background:#f4f7fd;color:var(--ink);padding:11px;border-radius:11px;border:2px solid transparent}.answers button.chosen{border-color:var(--blue);background:#e9f3ff}.answers button.right{border-color:#42b78d;background:#e2f9ee}.answers button.wrong{border-color:#ed7777;background:#fff0f0}
+.story{background:linear-gradient(115deg,#fff5d9,#ffebf2);border-radius:18px;padding:17px;border:1px solid #ffe0ad}.mission{border:1px dashed #b7c8e9;border-radius:17px;padding:16px;background:#fbfcff}
+.hidden{display:none!important}.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;margin-top:15px}.certificate{text-align:center;background:linear-gradient(135deg,#e4fff4,#e8efff);border-radius:20px;padding:24px;border:2px solid #bce8dd}.certificate .trophy{font-size:4rem}.certificate h2{font-size:2rem}.badge{display:inline-block;padding:7px 12px;background:#fff1be;border-radius:999px;font-weight:900;color:#6b4e00}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:10px}
+@media(max-width:620px){.hero-inner{grid-template-columns:1fr}.hero-art{font-size:5rem;order:-1}.stats{grid-template-columns:repeat(2,1fr)}.compare th,.compare td{padding:8px;font-size:.86rem}.hero{padding-top:20px}}
+@media print{body{background:#fff}.hero{border-radius:0}.no-print,button{display:none!important}.wrap{margin:0}.panel{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-inner"><div><div class="kicker">🎒 LKPD DIGITAL • KELAS V SD</div><h1>Petualangan<br>Detektif Teknologi!</h1><p>Bisakah timmu membongkar rahasia teknologi? Pelajari konsepnya, cari petunjuk, pecahkan kuis, dan raih lencana Detektif Super!</p><span class="badge">🔍 4 LEVEL • POIN • LENCANA</span></div><div class="hero-art" aria-hidden="true">🤖💡</div></div></header>
+<main class="wrap">
+<section class="panel">
+ <div class="section-head"><div class="section-icon">🪪</div><div><h2>Kartu Tim Detektif</h2><p>Isi identitas dan tentukan peran sebelum mulai.</p></div></div>
+ <div class="two"><div><label for="team">Nama kelompok</label><input id="team" type="text" placeholder="Misalnya: Pasukan Robot Pintar"></div><div><label for="members">Nama anggota</label><input id="members" type="text" placeholder="Nama anggota kelompok"></div></div>
+ <p class="tiny">Bagi peran: ketua 🧭, pembaca petunjuk 📖, pencatat ✍️, dan penyaji 🎤. Semua anggota wajib ikut berdiskusi!</p>
+</section>
+<section class="panel">
+ <div class="topbar"><h2>🏅 Papan Skor Petualangan</h2><span class="pill" id="rank">Detektif Pemula</span></div>
+ <div class="stats"><div class="stat"><span>⭐ Total poin</span><strong id="score">0</strong></div><div class="stat"><span>🗝️ Level selesai</span><strong id="levels">0/4</strong></div><div class="stat"><span>🎯 Jawaban benar</span><strong id="correct">0</strong></div><div class="stat"><span>🏆 Lencana</span><strong id="badges">0</strong></div></div>
+ <div class="progress"><div id="bar"></div></div><p class="tiny" id="progressText">Mulai petualangan untuk mengisi kemajuanmu.</p>
+</section>
+
+<section class="panel" id="learn">
+ <div class="section-head"><div class="section-icon">📚</div><div><span class="pill">BASE CAMP</span><h2>Pelajari Petunjuk Rahasia</h2><p>Baca bersama sebelum masuk ke tantangan.</p></div></div>
+ <div class="two">
+  <article class="concept smart"><div class="emoji">🧠✨</div><h3>Mesin cerdas</h3><p>Teknologi yang dapat melakukan tugas lebih adaptif, misalnya mengolah informasi, mengenali pola, memahami masukan, atau menyesuaikan tindakan. Sebagian menggunakan Kecerdasan Artifisial (KA).</p><p><b>Contoh:</b> chatbot AI, kamera pengenal wajah, dan robot vacuum yang dapat mengenali rintangan.</p></article>
+  <article class="concept non"><div class="emoji">⚙️🔘</div><h3>Mesin noncerdas</h3><p>Alat yang menjalankan fungsi atau perintah sederhana sesuai rancangan, tanpa kemampuan KA untuk memahami informasi atau belajar dari pola.</p><p><b>Contoh:</b> kipas angin dengan tombol biasa, lampu sakelar, dan sepeda biasa.</p></article>
+ </div>
+ <h3 style="margin-top:20px">🔬 Apa bedanya cara kerja?</h3>
+ <table class="compare"><thead><tr><th>Mesin cerdas / fitur KA</th><th>Mesin noncerdas</th></tr></thead><tbody>
+ <tr><td>Menerima data, mengolah informasi atau mengenali pola.</td><td>Menjalankan fungsi sesuai tombol, pengaturan, atau tenaga manusia.</td></tr>
+ <tr><td>Dapat memberi respons yang menyesuaikan keadaan, sesuai kemampuan sistem.</td><td>Biasanya tidak mengenali situasi atau menentukan respons baru sendiri.</td></tr>
+ <tr><td>Contoh: kamera yang mengenali wajah.</td><td>Contoh: lampu yang menyala saat sakelar ditekan.</td></tr>
+ </tbody></table>
+ <div class="story" style="margin-top:14px"><b>🕵️ Petunjuk penting!</b> Tidak semua alat listrik atau otomatis memakai KA. Contohnya, kipas angin dengan remote tetap dapat bekerja hanya berdasarkan perintah sederhana. Perhatikan <i>cara kerjanya</i>, bukan hanya bentuknya.</div>
+ <div class="actions no-print"><span class="tiny">Baca petunjuk? Lanjut ke Level 1!</span><button class="btn primary" id="startBtn">Mulai Misi ➜</button></div>
+</section>
+
+<section class="panel" id="level1">
+ <div class="section-head"><div class="section-icon">🧩</div><div><span class="pill">LEVEL 1</span><h2>Sortir Barang Bukti</h2><p>Kelompokkan enam teknologi ke kategori yang paling sesuai.</p></div></div>
+ <p>Tekan tombol <b>Cerdas</b> atau <b>Noncerdas</b> pada setiap kartu. Diskusikan alasannya bersama tim.</p>
+ <div class="grid" id="techGrid"></div><div class="feedback" id="sortFeedback" aria-live="polite"></div>
+ <div class="actions no-print"><span class="tiny">Maksimal 60 poin</span><button class="btn primary" id="checkSort">🔎 Periksa barang bukti</button></div>
+</section>
+
+<section class="panel" id="level2">
+ <div class="section-head"><div class="section-icon">🧭</div><div><span class="pill">LEVEL 2</span><h2>Detektif Cara Kerja</h2><p>Pasangkan petunjuk dengan cara kerja yang benar.</p></div></div>
+ <div class="mission"><b>Kasus A — 🤖 Robot vacuum</b><p>Robot mendeteksi kaki meja lalu mengubah arah geraknya. Apa yang paling tepat menjelaskan perilakunya?</p>
+ <div class="answers" id="caseA"><button data-case="a" data-val="0">A. Selalu bergerak lurus tanpa membaca keadaan.</button><button data-case="a" data-val="1">B. Sensor mendeteksi rintangan; model tertentu memakai fitur cerdas untuk menyesuaikan gerak.</button><button data-case="a" data-val="2">C. Ada orang yang harus mendorongnya setiap saat.</button></div><div id="caseAF" class="feedback"></div></div>
+ <div class="mission" style="margin-top:12px"><b>Kasus B — 💡 Lampu sakelar</b><p>Lampu menyala ketika sakelar ditekan. Apa yang paling tepat?</p>
+ <div class="answers" id="caseB"><button data-case="b" data-val="0">A. Lampu memahami keinginan orang.</button><button data-case="b" data-val="1">B. Lampu belajar dari pola penggunaan.</button><button data-case="b" data-val="2">C. Lampu menjalankan perintah sederhana dari sakelar.</button></div><div id="caseBF" class="feedback"></div></div>
+ <div class="actions no-print"><span class="tiny">Maksimal 40 poin</span><button class="btn primary" id="checkCases">🧠 Kunci jawaban</button></div>
+</section>
+
+<section class="panel" id="level3">
+ <div class="section-head"><div class="section-icon">⚡</div><div><span class="pill">LEVEL 3</span><h2>Serbu Kuis Kilat!</h2><p>Pilih satu jawaban paling tepat pada tiap pertanyaan.</p></div></div>
+ <div id="quiz"></div><div class="feedback" id="quizFeedback" aria-live="polite"></div>
+ <div class="actions no-print"><span class="tiny">Maksimal 30 poin</span><button class="btn primary" id="checkQuiz">🚀 Periksa kuis</button></div>
+</section>
+
+<section class="panel" id="level4">
+ <div class="section-head"><div class="section-icon">🎨</div><div><span class="pill">LEVEL 4</span><h2>Ciptakan Kartu Teknologi</h2><p>Buat kartu bukti digital kelompok dengan contoh pilihan sendiri.</p></div></div>
+ <div class="two"><div><label for="device">Nama teknologi</label><input id="device" type="text" placeholder="Contoh: chatbot AI"></div><div><label for="category">Kategori</label><select id="category"><option value="">Pilih kategori...</option><option>Mesin cerdas / memiliki fitur KA</option><option>Mesin noncerdas</option></select></div></div>
+ <label for="how">Bagaimana cara kerjanya?</label><textarea id="how" placeholder="Teknologi ini menerima..., lalu..."></textarea>
+ <label for="benefit">Apa manfaatnya?</label><textarea id="benefit" placeholder="Teknologi ini membantu..."></textarea>
+ <label for="wise">Bagaimana menggunakannya secara bijak?</label><textarea id="wise" placeholder="Saya akan... dan tidak akan..."></textarea>
+ <div class="feedback" id="cardFeedback" aria-live="polite"></div><div class="actions no-print"><span class="tiny">Maksimal 20 poin</span><button class="btn mint" id="saveCard">💾 Simpan kartu & raih lencana</button></div>
+ <div id="cardPreview" class="story hidden"></div>
+</section>
+
+<section class="panel">
+ <div class="section-head"><div class="section-icon">🎤</div><div><h2>Rapat Akhir Detektif</h2><p>Tuliskan kesimpulan, lalu presentasikan hasil kelompok.</p></div></div>
+ <label for="conclusion">Kesimpulan kelompok: apa perbedaan utama mesin cerdas dan noncerdas?</label><textarea id="conclusion" placeholder="Menurut kelompok kami, mesin cerdas..., sedangkan mesin noncerdas..."></textarea>
+ <label for="teamwork">Bagaimana kelompok bekerja sama?</label><textarea id="teamwork" placeholder="Kami berbagi tugas dengan cara..."></textarea>
+ <div class="actions no-print"><button class="btn light" id="printBtn">🖨️ Cetak / Simpan PDF</button><button class="btn gold" id="finishBtn">🏆 Klaim gelar detektif</button></div>
+ <div id="certificate" class="certificate hidden" aria-live="polite"></div>
+</section>
+<footer>🌟 Ingat: gunakan teknologi dengan aman, lindungi data pribadi, dan periksa informasi dari AI. 🌟</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const items=[
+ {name:"Robot vacuum pendeteksi rintangan",emoji:"🤖",desc:"Mendeteksi halangan dan menyesuaikan arah. Kemampuan berbeda menurut model.",type:"smart",why:"Model dengan navigasi/pengenalan rintangan dapat menyesuaikan tindakan."},
+ {name:"Kipas angin tombol biasa",emoji:"🌀",desc:"Kecepatan dipilih melalui tombol.",type:"non",why:"Mengikuti pengaturan tombol, bukan memahami keadaan."},
+ {name:"Chatbot AI",emoji:"💬",desc:"Memproses pertanyaan dan menghasilkan jawaban.",type:"smart",why:"Mengolah masukan bahasa dan menghasilkan respons."},
+ {name:"Sepeda biasa",emoji:"🚲",desc:"Bergerak dengan tenaga pengendara.",type:"non",why:"Tidak memproses informasi atau menentukan gerak sendiri."},
+ {name:"Kamera pengenal wajah",emoji:"📸",desc:"Menganalisis pola wajah untuk mengenali seseorang.",type:"smart",why:"Menggunakan pengenalan pola berbasis komputer/KA."},
+ {name:"Lampu sakelar biasa",emoji:"💡",desc:"Menyala atau mati saat sakelar dioperasikan.",type:"non",why:"Menjalankan perintah sederhana dari sakelar."}
+];
+const questions=[
+ {q:"1. Apa yang paling membedakan fitur mesin cerdas dari alat biasa?",a:["Bentuknya selalu seperti robot","Dapat mengolah informasi atau mengenali pola","Harus selalu tersambung internet"],c:1,why:"Bentuk dan koneksi internet bukan penentu utama; lihat kemampuan mengolah informasi."},
+ {q:"2. Asisten AI menjawab pertanyaan murid. Apa yang dilakukan sistem?",a:["Mengolah masukan lalu menghasilkan respons","Membaca pikiran tanpa data","Selalu memberi jawaban yang pasti benar"],c:0,why:"AI memproses masukan, tetapi jawabannya tetap perlu diperiksa."},
+ {q:"3. Mengapa lampu sakelar biasa termasuk noncerdas?",a:["Karena lampu tidak berguna","Karena tidak bisa menyala","Karena menyala/mati mengikuti perintah sakelar sederhana"],c:2,why:"Lampu biasa merespons sakelar, bukan memahami situasi."}
+];
+let score=0,correct=0;const done={sort:false,cases:false,quiz:false,card:false};const awarded={sort:false,cases:false,quiz:false,card:false};const picks={},casePicks={},quizPicks={};
+function update(){
+ $('score').textContent=score;$('correct').textContent=correct;
+ let n=Object.values(done).filter(Boolean).length;$('levels').textContent=n+'/4';$('badges').textContent=n;
+ $('bar').style.width=(n/4*100)+'%';$('progressText').textContent=n===4?'Semua level selesai! Hebat, Detektif!':`Kamu sudah menyelesaikan ${n} dari 4 level.`;
+ $('rank').textContent=score>=130?'Detektif Super':score>=100?'Ahli Teknologi':score>=60?'Detektif Hebat':score>=20?'Penjelajah Teknologi':'Detektif Pemula';
+}
+function buildItems(){
+ $('techGrid').innerHTML=items.map((x,i)=>`<article class="tech"><div class="art">${x.emoji}</div><h3>${x.name}</h3><p>${x.desc}</p><div class="choice"><button data-item="${i}" data-type="smart">🧠 Cerdas</button><button data-item="${i}" data-type="non">⚙️ Noncerdas</button></div><div id="if${i}" class="feedback"></div></article>`).join('');
+ document.querySelectorAll('[data-item]').forEach(b=>b.onclick=()=>{let i=+b.dataset.item;picks[i]=b.dataset.type;document.querySelectorAll(`[data-item="${i}"]`).forEach(z=>z.classList.toggle('sel',z===b));$('if'+i).textContent='Pilihan dicatat!';});
+}
+function buildQuiz(){
+ $('quiz').innerHTML=questions.map((q,i)=>`<div class="quest"><b>${q.q}</b><div class="answers">${q.a.map((a,j)=>`<button data-qi="${i}" data-ai="${j}">${String.fromCharCode(65+j)}. ${a}</button>`).join('')}</div><div class="feedback" id="qf${i}"></div></div>`).join('');
+ document.querySelectorAll('[data-qi]').forEach(b=>b.onclick=()=>{let i=+b.dataset.qi;quizPicks[i]=+b.dataset.ai;document.querySelectorAll(`[data-qi="${i}"]`).forEach(z=>z.classList.toggle('chosen',z===b));});
+}
+document.querySelectorAll('[data-case]').forEach(b=>b.onclick=()=>{let k=b.dataset.case;casePicks[k]=+b.dataset.val;document.querySelectorAll(`[data-case="${k}"]`).forEach(z=>z.classList.toggle('chosen',z===b));});
+$('startBtn').onclick=()=>$('level1').scrollIntoView({behavior:'smooth'});
+$('checkSort').onclick=()=>{
+ if(Object.keys(picks).length<items.length){$('sortFeedback').textContent='Pilih kategori untuk keenam kartu terlebih dahulu.';$('sortFeedback').className='feedback bad';return;}
+ let got=0;items.forEach((x,i)=>{let ok=picks[i]===x.type;if(ok)got++;$('if'+i).textContent=(ok?'✅ Tepat! ':'💡 Petunjuk: ')+x.why;$('if'+i).className='feedback '+(ok?'good':'bad');});
+ $('sortFeedback').textContent=`Hasil: ${got}/6 tepat. ${got===6?'Luar biasa!':'Baca petunjuk dan diskusikan kembali alasan jawaban.'}`;$('sortFeedback').className='feedback '+(got===6?'good':'');
+ if(!awarded.sort){score+=got*10;correct+=got;awarded.sort=true;}done.sort=true;update();
+};
+$('checkCases').onclick=()=>{
+ if(casePicks.a===undefined||casePicks.b===undefined){$('caseAF').textContent='Pilih jawaban untuk kedua kasus.';$('caseAF').className='feedback bad';return;}
+ let vals={a:1,b:2},got=0;
+ for(let k of ['a','b']){let ok=casePicks[k]===vals[k];if(ok)got++;let fb=$(k==='a'?'caseAF':'caseBF');fb.textContent=(ok?'✅ Tepat! ':'💡 Belum tepat. ')+(k==='a'?'Robot memakai sensor; fitur dan kecerdasannya bergantung model.':'Lampu sakelar biasa hanya mengikuti perintah sakelar.');fb.className='feedback '+(ok?'good':'bad');}
+ if(!awarded.cases){score+=got*20;correct+=got;awarded.cases=true;}done.cases=true;update();
+};
+$('checkQuiz').onclick=()=>{
+ if(Object.keys(quizPicks).length<questions.length){$('quizFeedback').textContent='Jawab ketiga soal dahulu ya!';$('quizFeedback').className='feedback bad';return;}
+ let got=0;questions.forEach((q,i)=>{let ok=quizPicks[i]===q.c;if(ok)got++;document.querySelectorAll(`[data-qi="${i}"]`).forEach((b,j)=>{b.classList.remove('right','wrong');if(j===q.c)b.classList.add('right');else if(j===quizPicks[i])b.classList.add('wrong')});$('qf'+i).textContent=(ok?'✅ Benar! ':'💡 Petunjuk: ')+q.why;$('qf'+i).className='feedback '+(ok?'good':'bad');});
+ $('quizFeedback').textContent=`Kalian benar ${got} dari 3 soal.`;$('quizFeedback').className='feedback '+(got===3?'good':'');
+ if(!awarded.quiz){score+=got*10;correct+=got;awarded.quiz=true;}done.quiz=true;update();
+};
+$('saveCard').onclick=()=>{
+ let d=$('device').value.trim(),c=$('category').value,h=$('how').value.trim(),b=$('benefit').value.trim(),w=$('wise').value.trim();
+ if(!d||!c||!h||!b||!w){$('cardFeedback').textContent='Lengkapi semua bagian kartu sebelum menyimpan.';$('cardFeedback').className='feedback bad';return;}
+ $('cardPreview').classList.remove('hidden');$('cardPreview').innerHTML=`<span class="pill">KARTU BARANG BUKTI</span><h2>🔎 ${escapeHtml(d)}</h2><p><b>Kategori:</b> ${escapeHtml(c)}</p><p><b>Cara kerja:</b> ${escapeHtml(h)}</p><p><b>Manfaat:</b> ${escapeHtml(b)}</p><p><b>Penggunaan bijak:</b> ${escapeHtml(w)}</p>`;
+ $('cardFeedback').textContent='Kartu tersimpan di halaman ini. Siapkan untuk presentasi!';$('cardFeedback').className='feedback good';
+ if(!awarded.card){score+=20;awarded.card=true;}done.card=true;update();
+};
+function escapeHtml(s){return s.replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+$('finishBtn').onclick=()=>{
+ const n=Object.values(done).filter(Boolean).length;
+ $('certificate').classList.remove('hidden');
+ if(n<4){$('certificate').innerHTML=`<div class="trophy">🧭</div><h2>Petualangan belum selesai!</h2><p>Selesaikan keempat level agar bisa mengklaim gelar detektif. Level selesai: ${n}/4.</p>`;}
+ else{$('certificate').innerHTML=`<div class="trophy">🏆</div><span class="badge">SERTIFIKAT TIM</span><h2>Detektif Super!</h2><p>Dengan bangga diberikan kepada</p><h2>${escapeHtml($('team').value.trim()||'Tim Detektif Teknologi')}</h2><p>Atas keberhasilan menyelesaikan Petualangan Detektif Teknologi.</p><div style="font-size:2rem;font-weight:900;color:#3767d5">${score} POIN ⭐</div><p>Terus berpikir kritis, bekerja sama, dan menggunakan teknologi secara bijak!</p><p><b>Anggota:</b> ${escapeHtml($('members').value.trim()||'Belum diisi')}</p><button class="btn primary no-print" onclick="window.print()">Cetak sertifikat & hasil</button>`;}
+ $('certificate').scrollIntoView({behavior:'smooth',block:'center'});
+};
+$('printBtn').onclick=()=>window.print();
+buildItems();buildQuiz();update();
+</script>
+</body></html>
